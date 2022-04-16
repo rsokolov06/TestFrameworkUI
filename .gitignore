@@ -1,3 +1,11 @@
+# Eclipse Core
+.project
+.settings/
+.allure/
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
 # Compiled class file
 *.class
 
@@ -10,7 +18,19 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+# JetBrains IDE
+.idea/
+
+# Unit test reports
+# TEST*.xml
+
+# Maven
+target/
+dist/
+test-output/
+
 # Package Files #
+*.app
 *.jar
 *.war
 *.nar
@@ -21,3 +41,4 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/target/

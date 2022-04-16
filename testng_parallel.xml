@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test thread-count="5" name="Test" parallel="classes" >
+		<classes>
+			<class name="uiframework.qa.selenium.TC1_ExactlyThisTextHintTest" />
+			<class name="uiframework.qa.selenium.TC2_NotThisTextTest" />
+			<class name="uiframework.qa.selenium.TC3_FileTypeSearchTest" />
+			<class name="uiframework.qa.selenium.TC4_SortingOrderTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

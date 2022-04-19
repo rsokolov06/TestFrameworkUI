@@ -1,4 +1,6 @@
-package uiframework.qa.selenium.utils;
+package wiki.qa.selenium.utils;
+
+import java.util.logging.Logger;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -7,9 +9,11 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import io.qameta.allure.Attachment;
-import uiframework.qa.selenium.base.Base;
+import wiki.qa.selenium.base.Base;
 
 public class AllureTestListener implements ITestListener {
+	
+	private static final Logger LOGGER = Logger.getLogger(AllureTestListener.class.getName());
 
 	private String getTestMethodName(ITestResult iTestResult) {
 		return iTestResult.getMethod().getMethodName();
@@ -21,14 +25,17 @@ public class AllureTestListener implements ITestListener {
 	}
 
 	public void onTestSuccess(ITestResult iTestResult) {
-		System.out.println("SUCCEED " + getTestMethodName(iTestResult));
+		LOGGER.info("SUCCEED " + getTestMethodName(iTestResult));
 	}
 	
 	public void onTestFailure(ITestResult iTestResult) {
-		System.out.println("FAILED " + getTestMethodName(iTestResult));
+		
+		LOGGER.info("FAILED " + getTestMethodName(iTestResult));
+		
 		WebDriver driver = ((Base)iTestResult.getInstance()).getDriver();		
+		
 		if (driver instanceof WebDriver) {
-			System.out.println("Screenshot captured for test case:" + getTestMethodName(iTestResult));
+			LOGGER.info("Screenshot captured for test case:" + getTestMethodName(iTestResult));
 			saveScreenshotPNG(driver);
 		}
 	}

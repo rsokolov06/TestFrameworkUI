@@ -1,4 +1,4 @@
-package uiframework.qa.selenium.base;
+package wiki.qa.selenium.base;
 
 import java.net.MalformedURLException;
 

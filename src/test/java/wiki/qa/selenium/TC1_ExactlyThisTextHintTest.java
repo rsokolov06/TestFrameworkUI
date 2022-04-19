@@ -1,4 +1,4 @@
-package uiframework.qa.selenium;
+package wiki.qa.selenium;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -6,30 +6,28 @@ import org.testng.annotations.Test;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import uiframework.qa.selenium.utils.RetryAnalyzer;
-import uiframework.qa.selenium.base.Base;
-import uiframework.qa.selenium.pages.AdvancedSearchPage;
-import uiframework.qa.selenium.pages.HomePage;
+import wiki.qa.selenium.utils.RetryAnalyzer;
+import wiki.qa.selenium.base.Base;
+import wiki.qa.selenium.pages.AdvancedSearchPageActions;
+import wiki.qa.selenium.pages.HomePage;
 
 public class TC1_ExactlyThisTextHintTest extends Base {
-	
 	
 	@Test (retryAnalyzer = RetryAnalyzer.class)
 	@Description("Test goal: Test that hint appears when there is no corresponding page found.")
 	@Severity(SeverityLevel.NORMAL)
 	public void testExactlyThisTextHint() throws InterruptedException {
 		
-		System.out.println("AdvancedSearchTest.testExactlyThisText()");
+		LOGGER.info("AdvancedSearchTest.testExactlyThisText()");
 		
-		Base p = new HomePage(webDriver)
+		Base basePage = new HomePage(webDriver)
 				.gotoAdvancedSearch()
 				.clickAdvancedOptions()
 				.enterExactlyThisText(Test_Data.get("exactlyThisText"))
 				.clickSearch();
 		
 		Assert.assertEquals( 
-				((AdvancedSearchPage)p).checkDidYouMeanHintPresent(), 
+				((AdvancedSearchPageActions)basePage).checkDidYouMeanHintPresent(), 
 				true);
 	}
-	
 }

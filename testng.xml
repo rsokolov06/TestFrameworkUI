@@ -3,10 +3,10 @@
 <suite name="Suite">
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="uiframework.qa.selenium.TC1_ExactlyThisTextHintTest" />
-			<class name="uiframework.qa.selenium.TC2_NotThisTextTest" />
-			<class name="uiframework.qa.selenium.TC3_FileTypeSearchTest" />
-			<class name="uiframework.qa.selenium.TC4_SortingOrderTest" />
+			<class name="wiki.qa.selenium.TC1_ExactlyThisTextHintTest" />
+			<class name="wiki.qa.selenium.TC2_NotThisTextTest" />
+			<class name="wiki.qa.selenium.TC3_FileTypeSearchTest" />
+			<class name="wiki.qa.selenium.TC4_SortingOrderTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

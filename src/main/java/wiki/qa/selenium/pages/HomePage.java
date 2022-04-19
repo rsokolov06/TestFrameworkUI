@@ -1,4 +1,4 @@
-package uiframework.qa.selenium.pages;
+package wiki.qa.selenium.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-import uiframework.qa.selenium.base.Base;
+import wiki.qa.selenium.base.Base;
 
 public class HomePage extends Base {
 
@@ -18,11 +18,11 @@ public class HomePage extends Base {
 		PageFactory.initElements(wd, this);
 	}
 	
-	public AdvancedSearchPage gotoAdvancedSearch() {
+	public AdvancedSearchPageActions gotoAdvancedSearch() {
 		
 		btnSearch.click();
 		
-		return PageFactory.initElements(webDriver, AdvancedSearchPage.class);
+		return PageFactory.initElements(webDriver, AdvancedSearchPageActions.class);
 	}
 
 }

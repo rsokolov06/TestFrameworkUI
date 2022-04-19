@@ -1,21 +1,21 @@
-package uiframework.qa.selenium.base;
+package wiki.qa.selenium.base;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-import uiframework.qa.selenium.utils.TestDataUtility;
+import wiki.qa.selenium.utils.TestDataUtility;
 
 import org.testng.annotations.AfterMethod;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class Base {
 
-    protected WebDriver webDriver;
-    
-    protected final String URL = "https://en.wikipedia.org/";
-    
+    protected WebDriver webDriver;    
+    protected final String URL = "https://en.wikipedia.org/";    
     public static TestDataUtility Test_Data;
+    protected static final Logger LOGGER = Logger.getLogger(Base.class.getName());
     
     @BeforeSuite
     public void initSuite() throws IOException {
@@ -25,8 +25,7 @@ public class Base {
     
     @BeforeMethod
     public void init() throws IOException {
-    	System.out.println("BeforeClass method...");
-    	
+    	    	
     	BrowserContext browserContext = new BrowserContext(getBrowser());
         browserContext.selectAndLaunchBrowser(this);
         
@@ -41,10 +40,10 @@ public class Base {
     private String getBrowser() {
         String browser = System.getProperties().getProperty("browser");
         
-        System.out.println("BROWSER: " + browser);
+        LOGGER.info("BROWSER: " + browser);
 
         if (browser == null) {
-            System.out.println("No browser -Dbrowser option is set, by default using chrome");
+        	LOGGER.info("No browser -Dbrowser option is set, by default using chrome");
             return "chrome";
         }
 
@@ -57,7 +56,7 @@ public class Base {
     
     @AfterMethod
     public void teardown() {
-    	System.out.println("AfterClass method...");		
+    	LOGGER.info("AfterClass method...");		
 		
 		if(webDriver != null) {
 			webDriver.quit();

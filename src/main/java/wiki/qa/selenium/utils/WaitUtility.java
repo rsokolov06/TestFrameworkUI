@@ -1,4 +1,4 @@
-package uiframework.qa.selenium.utils;
+package wiki.qa.selenium.utils;
 
 import org.openqa.selenium.WebElement;
 
